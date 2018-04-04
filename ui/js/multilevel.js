@@ -1,21 +1,22 @@
+setTexto = (contenedor, texto) => {
+    contenedor.textContent = texto;
+}
+
 /* Repasando Callbacks */
 (() => {
     var textoH3 = document.querySelector("#async-callback div.texto");
     var boton = textoH3.parentElement.querySelector("#action");
 
-    const setTexto = texto => {
-        textoH3.textContent = texto;
-    }
 
     const checkAuth = callback => {
-        setTexto("Verificando identidad...");
+        setTexto(textoH3, "Verificando identidad...");
         setTimeout(() => {
             callback(true);
         }, 2000);
     };
 
     const fetchName = callback => {
-        setTexto("Obteniendo el usuario...");
+        setTexto(textoH3, "Obteniendo el usuario...");
         setTimeout(() => {
             callback({nombre : "Pablo Andres Velez Vidal"});
         }, 2000);
@@ -25,7 +26,7 @@
         checkAuth(auth => {
             if (auth) {
                 fetchName(user => {
-                    setTexto(user.nombre);
+                    setTexto(textoH3, user.nombre);
                 }) 
             }
         });
@@ -37,13 +38,9 @@
     var textoH3 = document.querySelector("#async-promises div.texto");
     var boton = textoH3.parentElement.querySelector("#action");
 
-    const setTexto = texto => {
-        textoH3.textContent = texto;
-    }
-
     const checkAuth = () => {
         return new Promise((resolve, reject) => {
-            setTexto("Verificando identidad...");
+            setTexto(textoH3, "Verificando identidad...");
             setTimeout(() => {
                 resolve(true);
             }, 2000);
@@ -53,7 +50,7 @@
 
     const fetchName = () => {
         return new Promise((resolve, reject) => {
-            setTexto("Obteniendo el usuario...");
+            setTexto(textoH3, "Obteniendo el usuario...");
             setTimeout(() => {
                 resolve({nombre : "Pablo Andres Velez Vidal"});
             }, 2000);
@@ -68,7 +65,7 @@
             }
         })
         .then( user => {
-            setTexto(user.nombre);
+            setTexto(textoH3, user.nombre);
         });
     });
 })();
@@ -78,13 +75,9 @@
     var textoH3 = document.querySelector("#async-observables div.texto");
     var boton = textoH3.parentElement.querySelector("#action");
 
-    const setTexto = texto => {
-        textoH3.textContent = texto;
-    }
-
     const checkAuth = () => {
         return Rx.Observable.create((observer) => {
-            setTexto("Verificando identidad...");
+            setTexto(textoH3, "Verificando identidad...");
             setTimeout(() => {
                 observer.next(true);
             }, 2000);
@@ -94,7 +87,7 @@
 
     const fetchName = () => {
         return Rx.Observable.create((observer) => {
-            setTexto("Obteniendo el usuario...");
+            setTexto(textoH3, "Obteniendo el usuario...");
             setTimeout(() => {
                 observer.next({nombre : "Pablo Andres Velez Vidal"});
             }, 2000);
@@ -109,6 +102,6 @@
             }
         })
         .subscribe(user => {
-            setTexto(user.nombre)
+            setTexto(textoH3, user.nombre)
         })
 })();
