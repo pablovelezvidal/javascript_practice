@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+header{
+    background-color: hsl(0, 0%, 12%);
+    color: white;
+    text-align: center;
+    padding: .5em;
+}
+
+main {
+    background-color: hsl(187, 100%, 83%);
+    margin: 0 auto;
+    width: 80%;
+}
+
+main div.centered {
+    margin: 1em;
+    padding: .5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+#async-methods button {
+    padding: .5em;
+    width: 200px;
+    font-weight: 800;
+    background-color: hsl(229, 93%, 61%);
+    color: white;
+    cursor: pointer;
+}
