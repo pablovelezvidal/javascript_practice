@@ -29,7 +29,29 @@
                 <button id="action">Click Me!</button>
             </div>
         </section>
+        <section>
+                <p>El iframe</p>
+                <iframe src="./eliframe.html" frameborder="0"></iframe>
+        </section>
     </main>
+    <script type="text/javascript">
+        //Send/receive messages from iframe-parent
+        var eventMethod = window.addEventListener
+                ? "addEventListener"
+                : "attachEvent";
+        var eventer = window[eventMethod];
+        var messageEvent = eventMethod === "attachEvent"
+            ? "onmessage"
+            : "message";
+        eventer(messageEvent, function (e) {
+                alert(e.data);
+                if (e.data) {
+                    window.location.reload();
+                }
+
+        });
+    </script>
+
 </body>
 <script src="./js/multilevel.js" defer type="text/javascript"></script>
 

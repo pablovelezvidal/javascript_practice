@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <body>
+    <button>Boton</button>
+
+    <script type="text/javascript">
+        document.querySelector('button').onclick = function () {
+            // parent.postMessage("message to be sent", "http://the-website-that-will-receive-the-msg.com")
+            parent.postMessage("mi evento", "*")
+        };
+    </script>
+    <h1>Yo soy el iframe</h1>
+</body>
+</html>
