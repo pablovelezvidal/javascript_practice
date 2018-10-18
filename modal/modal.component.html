@@ -1,0 +1,8 @@
+<div class="modal-body">
+  <ng-container *ngComponentOutlet="dynamicComponent"></ng-container>
+</div>
+<div class="modal-footer">
+  <button (click)="activeModal.dismiss('Close clicked')" type="button" class="btn btn-secondary ml-md-2">
+    Close Clicked
+  </button>
+</div>
