@@ -1,4 +1,4 @@
-const request = new Request('http://localhost:3300/api/v1/sports', {
+const request = new Request('http://httpstat.us/500', {
     method: 'get',
     headers: {
         Accept: 'application/json'
@@ -23,6 +23,11 @@ const miPromise = new Promise((resolve, reject) => {
 
 const miObs = Rx.Observable.fromPromise(miPromise);
 
-miObs.subscribe((res) => {
+miObs.subscribe(
+    res => {
     console.log('Resultados: ->', res);
-});
+    },
+    err => {
+        console.log('Error', err);
+        throw err;
+    });
