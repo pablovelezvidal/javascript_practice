@@ -8,10 +8,13 @@
 //   palindrome("abcdefg") === false
 
 // solution 1
-function palindrome(str) {
-  return str == str.split("").reverse().join("");
-}
+// function palindrome(str) {
+//   return str == str.split("").reverse().join("");
+// }
 
-function palindrome(str) {}
+// solution #2, not efficient because performs twice comparisons, but was interesting see this solution
+function palindrome(str) {
+  return str.split("").every((char, i) => char == str[str.length - i - 1]);
+}
 
 module.exports = palindrome;
