@@ -12,6 +12,26 @@
 //   4
 //   buzz
 
-function fizzBuzz(n) {}
+function fizzBuzz(n) {
+  if (isNaN(n)) {
+    console.log("n is not a number, exiting.");
+    return;
+  }
+  for (var i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("fizzbuzz");
+      continue;
+    } else if (i % 5 === 0) {
+      console.log("buzz");
+      continue;
+    } else if (i % 3 === 0) {
+      console.log("fizz");
+      continue;
+    } else {
+      console.log(i);
+      continue;
+    }
+  }
+}
 
 module.exports = fizzBuzz;
