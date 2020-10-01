@@ -12,12 +12,10 @@ function chunk(array, size) {
   let res = [];
   let temp = [];
   array.map((el, i) => {
-    if (temp.length < size) {
-      temp.push(el);
-      if (temp.length == size || i == array.length - 1) {
-        res.push(temp);
-        temp = [];
-      }
+    temp.push(el);
+    if (temp.length == size || i == array.length - 1) {
+      res.push(temp);
+      temp = [];
     }
   });
   return res;
