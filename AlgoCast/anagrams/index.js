@@ -9,29 +9,37 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-  let cleanResA = getWorkArray(stringA);
-  let cleanResB = getWorkArray(stringB);
-
-  if (Object.keys(cleanResA).length !== Object.keys(cleanResB).length) {
-    return false;
-  }
-
-  for (let char in cleanResA) {
-    if (!cleanResB[char] || cleanResB[char] !== cleanResA[char]) {
-      return false;
-    }
-  }
-
-  return true;
+  return cleanString(stringA) === cleanString(stringB);
 }
 
-function getWorkArray(string) {
-  let resArr = {};
-  string = string.match(/[a-zA-Z0-9]/g);
-  string.map((char) => {
-    resArr[char] = resArr[char] + 1 || 1;
-  });
-  return resArr;
+function cleanString(string) {
+  return string.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
 }
+
+// function anagrams(stringA, stringB) {
+//   let cleanResA = getWorkArray(stringA);
+//   let cleanResB = getWorkArray(stringB);
+
+//   if (Object.keys(cleanResA).length !== Object.keys(cleanResB).length) {
+//     return false;
+//   }
+
+//   for (let char in cleanResA) {
+//     if (!cleanResB[char] || cleanResB[char] !== cleanResA[char]) {
+//       return false;
+//     }
+//   }
+
+//   return true;
+// }
+
+// function getWorkArray(string) {
+//   let resArr = {};
+//   string = string.match(/[a-zA-Z0-9]/g);
+//   string.map((char) => {
+//     resArr[char] = resArr[char] + 1 || 1;
+//   });
+//   return resArr;
+// }
 
 module.exports = anagrams;
