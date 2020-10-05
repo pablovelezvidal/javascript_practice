@@ -17,6 +17,14 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+  var gato = "#";
+
+  for (var i = 1; i <= n; i++) {
+    var temp = gato.repeat(i);
+    temp += " ".repeat(n - i);
+    console.log(temp);
+  }
+}
 
 module.exports = steps;
