@@ -14,6 +14,18 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+  var gato = "#";
+  var whiteSpace = " ";
+
+  for (var i = 1; i <= n; i++) {
+    var blankSpacesRepeat = n - i;
+    var gatoRepeat = i == 1 ? 1 : gatoRepeat + 2;
+    var temp = whiteSpace.repeat(blankSpacesRepeat);
+    temp += gato.repeat(gatoRepeat);
+    temp += whiteSpace.repeat(blankSpacesRepeat);
+    console.log(temp);
+  }
+}
 
 module.exports = pyramid;
