@@ -17,14 +17,32 @@
 //       '### '
 //       '####'
 
-function steps(n) {
-  var gato = "#";
+function steps(n, row = 0, stair = "") {
+  if (n === row) {
+    return;
+  }
 
-  for (var i = 1; i <= n; i++) {
-    var temp = gato.repeat(i);
-    temp += " ".repeat(n - i);
-    console.log(temp);
+  if (n === stair.length) {
+    console.log(stair);
+    steps(n, row + 1);
+    return;
+  }
+
+  if (stair.length <= row) {
+    steps(n, row, (stair += "#"));
+  } else {
+    steps(n, row, (stair += " "));
   }
 }
+
+// function steps(n) {
+//   var gato = "#";
+
+//   for (var i = 1; i <= n; i++) {
+//     var temp = gato.repeat(i);
+//     temp += " ".repeat(n - i);
+//     console.log(temp);
+//   }
+// }
 
 module.exports = steps;
