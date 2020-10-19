@@ -14,18 +14,35 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {
+function pyramid(n, row = 0, gatoRepeat = 1) {
+  if (n === row) {
+    return;
+  }
   var gato = "#";
   var whiteSpace = " ";
 
-  for (var i = 1; i <= n; i++) {
-    var blankSpacesRepeat = n - i;
-    var gatoRepeat = i == 1 ? 1 : gatoRepeat + 2;
-    var temp = whiteSpace.repeat(blankSpacesRepeat);
-    temp += gato.repeat(gatoRepeat);
-    temp += whiteSpace.repeat(blankSpacesRepeat);
-    console.log(temp);
-  }
+  var blankSpacesRepeat = n - row - 1;
+  var gatoRepeat = row == 0 ? 1 : gatoRepeat + 2;
+
+  var line = whiteSpace.repeat(blankSpacesRepeat);
+  line += gato.repeat(gatoRepeat);
+  line += whiteSpace.repeat(blankSpacesRepeat);
+  console.log(line);
+  pyramid(n, row + 1, gatoRepeat);
 }
+
+// function pyramid(n) {
+//   var gato = "#";
+//   var whiteSpace = " ";
+
+//   for (var i = 1; i <= n; i++) {
+//     var blankSpacesRepeat = n - i;
+//     var gatoRepeat = i == 1 ? 1 : gatoRepeat + 2;
+//     var temp = whiteSpace.repeat(blankSpacesRepeat);
+//     temp += gato.repeat(gatoRepeat);
+//     temp += whiteSpace.repeat(blankSpacesRepeat);
+//     console.log(temp);
+//   }
+// }
 
 module.exports = pyramid;
