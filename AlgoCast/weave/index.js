@@ -21,9 +21,40 @@
 //    q.remove() // 'Hi'
 //    q.remove() // 2
 //    q.remove() // 'There'
+// while     Queue { data: [ 'four', 4, 'three', 3, 'two', 2, 'one', 1 ] }
+// recursive Queue { data: [ 'four', 4, 'three', 3, 'two', 2, 'one', 1 ] }
 
-const Queue = require('./queue');
+const Queue = require("./queue");
 
-function weave(sourceOne, sourceTwo) {}
+// function weave(sourceOne, sourceTwo, newQueue = new Queue()) {
+//   if (sourceOne.peek() !== undefined) {
+//     console.log(sourceOne.peek());
+//     newQueue.add(sourceOne.remove());
+//   }
+//   if (sourceTwo.peek() !== undefined) {
+//     console.log(sourceTwo.peek());
+//     newQueue.add(sourceTwo.remove());
+//   }
+
+//   if (sourceOne.peek() === undefined && sourceTwo.peek() === undefined) {
+//     console.log("recursive", newQueue);
+//     return newQueue;
+//   }
+//   weave(sourceOne, sourceTwo, newQueue);
+// }
+
+function weave(sourceOne, sourceTwo) {
+  const newQueue = new Queue();
+  while (sourceOne.peek() !== undefined || sourceTwo.peek() !== undefined) {
+    if (sourceOne.peek() !== undefined) {
+      newQueue.add(sourceOne.remove());
+    }
+    if (sourceTwo.peek() !== undefined) {
+      newQueue.add(sourceTwo.remove());
+    }
+  }
+  console.log("while", newQueue);
+  return newQueue;
+}
 
 module.exports = weave;
